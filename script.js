@@ -2,13 +2,14 @@ let dayList = ['Domingo','Segunda', 'Terça-feira', 'Quarta-feira', 'Quinta-feir
 const content = document.querySelector(".content");
 
 setInterval(()=> {
-    let date = new Date();
-    let day = dayList[date.getDay()];
-    let month = date.getMonth();
-    let year = date.getFullYear();
-    let hour = date.getHours();
-    let minute = date.getMinutes();
-    let seconds = date.getSeconds();
+    let mainDate = new Date();
+    let day = dayList[mainDate.getDay()];
+    let date = mainDate.getDate();
+    let month = mainDate.getMonth();
+    let year = mainDate.getFullYear();
+    let hour = mainDate.getHours();
+    let minute = mainDate.getMinutes();
+    let seconds = mainDate.getSeconds();
 
     if(minute.toString().length == 1) {
         minute = `0${minute}`;
@@ -19,7 +20,7 @@ setInterval(()=> {
     }
 
     return (
-        content.innerHTML = `Dia ${day} do mês ${month} do ano de ${year}.
+        content.innerHTML = `${day}, dia ${date} do mês ${month} do ano de ${year}.
         Horário ${hour}:${minute}:${seconds}`
     )
 }, 1000);
